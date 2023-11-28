@@ -10,7 +10,7 @@ import const
 def run():
     with grpc.insecure_channel(const.IP+':'+const.PORT) as channel:
         stub = EmployeeService_pb2_grpc.EmployeeServiceStub(channel)
-
+        print(stub)
         # Query an employee's data
         response = stub.GetEmployeeDataFromID(EmployeeService_pb2.EmployeeID(id=101))
         print ('Employee\'s data: ' + str(response))
