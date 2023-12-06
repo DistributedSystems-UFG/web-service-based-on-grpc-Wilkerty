@@ -31,6 +31,14 @@ def run():
         response = stub.ListAllEmployees(EmployeeService_pb2.EmptyMessage())
         print ('All employees: ' + str(response))
 
+        # Query an employee's data from name
+        response = stub.GetEmployeeDataFromName(EmployeeService_pb2.EmployeeName(name='Saravanan S'))
+        print ('Employee\'s data: ' + str(response))
+
+        # List all employees with same title
+        response = stub.ListAllEmployeesWithSameTitle(EmployeeService_pb2.EmployeeTitle(title='Technical Leader'))
+        print ('All employees with same title: ' + str(response))
+
 if __name__ == '__main__':
     logging.basicConfig()
     run()
